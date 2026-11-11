@@ -1,0 +1,21 @@
+title: JH-INVESTING
+description: 매일 아침 9시, 세계 경제와 주식시장을 정리하는 데일리 마켓 리포트
+lang: ko
+timezone: Asia/Seoul
+
+url: "https://jaehun-py0.github.io"
+baseurl: "/JH-INVESTING"
+
+theme: minima
+minima:
+  skin: classic
+
+permalink: /:year/:month/:day/:title/
+show_excerpts: true
+
+header_pages:
+  - about.md
+
+exclude:
+  - CLAUDE.md
+  - README.md
