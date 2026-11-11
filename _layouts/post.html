@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% assign t = page.title | split: '— ' %}
+<article class="post">
+  <header class="post-head">
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time><span class="by">Claude 작성</span></p>
+    <h1>{{ t.last | escape }}</h1>
+    {% if page.tags.size > 0 %}<p class="post-tags">{% for tag in page.tags %}<i>{{ tag }}</i>{% endfor %}</p>{% endif %}
+  </header>
+  <div class="post-body">
+    {{ content }}
+  </div>
+  <nav class="pager" aria-label="다른 리포트">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><small>이전 리포트</small>{{ page.previous.date | date: '%m.%d' }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><small>다음 리포트</small>{{ page.next.date | date: '%m.%d' }}</a>{% endif %}
+  </nav>
+</article>

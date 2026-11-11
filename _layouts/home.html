@@ -1,0 +1,47 @@
+---
+layout: default
+---
+{% assign latest = site.posts.first %}
+<section class="hero">
+  <canvas class="signal" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <p class="status"><span class="pulse" aria-hidden="true"></span>다음 리포트까지 <span class="countdown" data-countdown>--:--:--</span></p>
+    {% if latest %}
+    {% assign t = latest.title | split: '— ' %}
+    <p class="hero-date"><time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | date: '%Y.%m.%d' }}</time> 리포트</p>
+    <h1><a href="{{ latest.url | relative_url }}">{{ t.last | escape }}</a></h1>
+    {% assign head = latest.content | split: '</ol>' %}
+    {% assign ol = head.first | split: '<ol>' %}
+    {% if ol.size > 1 %}
+    <ol class="brief">{{ ol.last }}</ol>
+    {% else %}
+    <p class="brief-fallback">{{ latest.excerpt | strip_html | truncate: 220 }}</p>
+    {% endif %}
+    <a class="cta" href="{{ latest.url | relative_url }}">전체 리포트 읽기</a>
+    {% else %}
+    <h1>첫 리포트가 곧 올라옵니다</h1>
+    {% endif %}
+  </div>
+</section>
+
+<section class="how" aria-label="리포트가 만들어지는 과정">
+  <div><strong>08:40</strong><span>Claude가 밤사이 뉴스와 시장 데이터를 새로 검색합니다</span></div>
+  <div><strong>08:50</strong><span>미국장, 매크로, 반도체, 한국장 순서로 분석해 씁니다</span></div>
+  <div><strong>09:00</strong><span>출처와 함께 이곳에 게시합니다</span></div>
+</section>
+
+<section class="archive" id="archive">
+  <h2>지난 리포트 <span class="count">{{ site.posts.size }}</span></h2>
+  <ul class="rows">
+    {% for post in site.posts %}
+    {% assign t = post.title | split: '— ' %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%m.%d' }}<small>{{ post.date | date: '%Y' }}</small></time>
+        <span class="row-title">{{ t.last | escape }}</span>
+        <span class="row-tags">{% for tag in post.tags limit: 3 %}<i>{{ tag }}</i>{% endfor %}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
