@@ -27,6 +27,8 @@
   <p>리포트는 AI(Claude)가 매일 아침 새로 검색한 공개 정보를 바탕으로 작성합니다. 투자 권유가 아니며, 투자 판단과 그 결과에 대한 책임은 투자자 본인에게 있습니다.</p>
   <p class="foot-small">© {{ site.time | date: '%Y' }} JH-INVESTING</p>
 </footer>
+<script>window.GLOSSARY={{ site.data.glossary | jsonify }};</script>
 <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/lookup.js' | relative_url }}" defer></script>
 </body>
 </html>

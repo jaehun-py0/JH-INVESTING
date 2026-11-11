@@ -108,3 +108,17 @@ time,.countdown,.count{font-family:var(--num);font-variant-numeric:tabular-nums}
   .pulse{animation:none}
   .cta{transition:none}
 }
+
+/* 용어 설명 */
+.term{border-bottom:1px dashed rgba(92,225,255,.6);cursor:help}
+.term:hover,.term:focus-visible{background:rgba(92,225,255,.12);outline:none;border-radius:3px}
+.lookup{position:absolute;z-index:30;width:min(22rem,calc(100vw - 2rem));padding:1rem 1.1rem;border:1px solid rgba(140,160,255,.35);border-radius:14px;background:rgba(16,23,58,.97);box-shadow:0 18px 50px rgba(0,0,0,.55);font-size:.92rem;line-height:1.65}
+.lookup[hidden]{display:none}
+.lookup b{display:block;margin-bottom:.3rem;color:#fff;font-size:1rem;overflow-wrap:anywhere}
+.lookup p{margin:0 0 .8rem;color:#C9CFF2}
+.lookup p.none{color:var(--muted)}
+.lookup div{display:flex;gap:.5rem;flex-wrap:wrap}
+.lookup a{padding:.3rem .8rem;border:1px solid var(--line);border-radius:99px;color:var(--cyan);font-size:.82rem}
+.lookup a:hover{background:rgba(92,225,255,.1)}
+.tip{margin:0 0 2rem;color:var(--muted);font-size:.88rem}
+.tip span{border-bottom:1px dashed rgba(92,225,255,.6)}
