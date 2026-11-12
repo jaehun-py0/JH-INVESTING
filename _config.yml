@@ -2,6 +2,8 @@ title: JH-INVESTING
 description: 매일 아침 9시, AI가 밤사이 세계 경제와 주식시장을 읽고 정리합니다
 lang: ko
 timezone: Asia/Seoul
+# 09:00 이전에 푸시해도 리포트가 바로 게시되도록 미래 날짜 글도 빌드
+future: true
 
 url: "https://jaehun-py0.github.io"
 baseurl: "/JH-INVESTING"
